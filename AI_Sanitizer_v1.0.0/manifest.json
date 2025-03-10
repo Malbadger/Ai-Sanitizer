@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "AI Sanitizer",
+  "version": "1.0.0",
+  "description": "Sanitize sensitive data in AI chats like ChatGPT and Copilot.",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/*",
+        "https://chatgpt.com/*",
+        "https://grok.com/chat/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/app/*",
+        "https://github.com/copilot/*",
+        "https://www.perplexity.ai/*",
+        "https://copilot.microsoft.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "action": {
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "128": "icon.png"
+  }
+}
