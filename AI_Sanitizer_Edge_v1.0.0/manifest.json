@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "AI Sanitizer",
+  "short_name": "AI Sanitizer",
+  "version": "1.0.0",
+  "description": "Enhances privacy by sanitizing sensitive data (e.g., IP addresses, SSNs) in AI chat interfaces.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://chat.openai.com/*",
+    "https://chatgpt.com/*",
+    "https://grok.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://github.com/*",
+    "https://www.perplexity.ai/*",
+    "https://copilot.microsoft.com/*",
+    "https://aisanitizer.ai/*",
+    "https://buy.stripe.com/*",
+    "https://www.bing.com/*"
+  ],
+  "content_scripts": [
+  {
+    "matches": [
+      "https://chat.openai.com/*",
+      "https://chatgpt.com/*",
+      "https://grok.com/*",
+      "https://claude.ai/*",
+      "https://gemini.google.com/*",
+      "https://github.com/*",
+      "https://www.perplexity.ai/*",
+      "https://copilot.microsoft.com/*",
+      "https://www.bing.com/*"
+    ],
+    "js": ["content.js"],
+    "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "action": {
+    "default_icon": {
+      "16": "icons/Icon_16.png",
+      "48": "icons/Icon_48.png",
+      "128": "icons/Icon_128.png"
+    },
+    "default_popup": "options.html"
+  },
+  "icons": {
+    "16": "icons/Icon_16.png",
+    "48": "icons/Icon_48.png",
+    "128": "icons/Icon_128.png",
+    "300": "icons/Icon_300.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["options.html", "options.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "privacy_policy_url": "https://aisanitizer.ai/support"
+}
