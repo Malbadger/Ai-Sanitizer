@@ -1,2 +1,2 @@
 # Ai-Sanitizer
-Ai-Sanitizer
+aisanitizer.ai
